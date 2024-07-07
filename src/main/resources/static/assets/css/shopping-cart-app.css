@@ -1,0 +1,26 @@
+/* Add your custom styles here */
+
+/* Example styling for panel and icon */
+body{
+	background-color: black;
+}
+.panel-primary {
+    background-color: #ffffff;
+    border-color: #428bca;
+    margin-top: 20px;
+}
+
+.panel-heading {
+    background-color: #428bca;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.list-group {
+    margin-bottom: 0;
+}
+
+.glyphicon {
+    margin-right: 5px;
+}

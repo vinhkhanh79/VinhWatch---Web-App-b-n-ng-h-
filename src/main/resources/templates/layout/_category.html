@@ -1,0 +1,15 @@
+<div xmlns:th="http://www.thymeleaf.org">
+	<div class="panel panel-primary">
+		<div class="panel-heading bg-dark">
+			<b class="	glyphicon glyphicon-briefcase"></b> Danh mục
+		</div>
+		<div class="list-group bg-dark">
+			<th:block th:each="c:${cates}" class="bg-dark">
+				<a th:href="@{|/product/list?cid=${c.id}|}" class="list-group-item bg-dark text-light">
+					<b class="	glyphicon glyphicon-gift"></b>
+					<span th:text="${c.name}"></span>
+				</a>
+			</th:block>
+		</div>
+	</div>
+</div>

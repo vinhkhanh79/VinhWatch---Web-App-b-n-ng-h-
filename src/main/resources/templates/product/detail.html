@@ -1,0 +1,38 @@
+<div xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic (~{::main})}">
+    <main th:object="${item}" class="poly-item-detail container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-primary bg-dark">
+                    <div class="panel-body text-center">
+                        <img th:src="@{|/assets/images/${item.image}|}" class="img-fluid" style="max-height: 400px;" alt="Product Image">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-primary bg-dark text-light">
+                    <div class="panel-body bg-dark">
+                        <h2 th:text="*{name}" class="text-primary"></h2>
+                        <p th:text="'Price: $' + *{price}"></p>
+                        <p th:text="'Category: ' + *{category.name}"></p>
+                        <p th:text="'Created Date: ' + *{createDate}"></p>
+                    </div>
+                    <div class="panel-footer text-right bg-dark">
+                        <button class="btn btn-primary mb-3" th:replace="~{/product/_actions::item_id(${item.id})}">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="panel panel-primary bg-dark">
+                <div class="panel-heading">Sản phẩm cùng loại</div>
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        <li class="mt-3" th:each="p : ${item.category.products}">
+                            <a th:href="@{|/product/detail/${p.id}|}" th:text="${p.name}" class="text-light" style="text-decoration: none"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
